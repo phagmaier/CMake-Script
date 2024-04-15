@@ -1,7 +1,11 @@
 # CMAKE-SCRIPT
 
 ## DESCRIPTION
-Makes it easier to make a Cmake file by automating some of th tedious parts of writting one. Useful for smaller projects. Nothing fancy more functionality needs to be added.
+Makes it easier to make a Cmake file by automating some of the tedious parts of writting one. 
+Useful for smaller projects. currently set the minimum cmake requirments. Create a project name. 
+Set the c++ version. Include packages and specify the module of the package. Includes all cpp
+files for you. Can copy data files to your bin if they aren't there already. Creates executable.
+and links the libraries. 
 
 
 ## File Table
@@ -13,6 +17,8 @@ Makes it easier to make a Cmake file by automating some of th tedious parts of w
 
 
 ## How to run
-I suggest putting the folder in your ~/bin file and then making an alias in you bashrc so you if you do want to use it you can run it from anywhere. If not just adjust the path in the .sh file since I assume it will be in your home directory and then have it call the python file. Could also call the python file directly and just passthe current directory you are working in or $PWD
-
+Included a little script that will automatically pass the current directory to the path of the 
+python file. So you can call that by doing ./write_cmake.sh as long as you change the file permissions
+to allow you to run it. If you do this make sure to add the directory of the .py and .sh files
+to your path so you can call this script from anywhere. 
 
