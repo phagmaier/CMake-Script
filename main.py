@@ -22,7 +22,7 @@ def make_file(version, proj_name, c_version, files, exec, data_files, libs):
     file += "set(CMAKE_CXX_STANDARD " + c_version + ')\n'
 
     for i in libs:
-        file += "find_packages("
+        file += "find_package("
         x = 0
         while x < len(i) and i[x] != ':':
             file += i[x]
@@ -44,6 +44,7 @@ def make_file(version, proj_name, c_version, files, exec, data_files, libs):
         file += "target_link_libraries(" + exec + " "
         for i in libs:
             file += i + " "
+        file = file[:-1]
         file += ")\n"
 
     with open("CMakeLists.txt", 'w') as cmake:
