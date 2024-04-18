@@ -15,7 +15,6 @@ def get_libs():
         libs = input("If you want to inlude another library enter it here else hit ENTER: ")
     return all_libs
 
-
 def make_file(version, proj_name, c_version, files, exec, data_files, libs):
     file = "cmake_minimum_required(VERSION " + version + ")\n"
     file += "project(" + proj_name + ')\n'
@@ -43,7 +42,10 @@ def make_file(version, proj_name, c_version, files, exec, data_files, libs):
     if libs:
         file += "target_link_libraries(" + exec + " "
         for i in libs:
-            file += i + " "
+            if "::" not in i:
+                file += i + " "
+            else:
+                file += "${" + i.upper() + "_LIBRARIES} "
         file = file[:-1]
         file += ")\n"
 
