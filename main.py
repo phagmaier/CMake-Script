@@ -68,7 +68,7 @@ def get_src(curr):
             print("Path does not exist")
             answer = input("Press enter if you made a typo OR press 1 then enter if you want to create that directory")
             if not answer:
-                get_src(curr)
+                return get_src(curr)
             else:
                 src_path.mkdir(parents=True, exist_ok=True)
                 return src_path
